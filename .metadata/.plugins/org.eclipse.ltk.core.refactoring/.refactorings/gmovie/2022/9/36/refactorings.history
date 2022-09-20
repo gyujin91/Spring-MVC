@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;gmovie/src/main/webapp/WEB-INF/views/board/borardWriteForm.jsp&apos; to &apos;boardWriteForm.jsp&apos;" description="Rename resource &apos;borardWriteForm.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/views/board/borardWriteForm.jsp" name="boardWriteForm.jsp" stamp="1662126407640" updateReferences="true"/>
+</session>

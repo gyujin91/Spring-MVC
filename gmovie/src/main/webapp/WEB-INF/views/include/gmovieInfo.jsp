@@ -1,0 +1,293 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path1" value="${pageContext.request.contextPath }" />
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회사소개</title>
+    <link rel="stylesheet" href="${path1 }/resources/css/style.css">
+    <link rel="stylesheet" href="${path1 }/resources/css/normalize.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+   
+    
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 3000px;
+    }
+    section {
+        position: relative;
+        width: 100%;
+        height: 2000px;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+        ), url(${path1 }/resources/imgs/bg-main-img.png);
+        background-attachment: fixed;
+        z-index: 0;
+      }
+      .gmovieInfo {
+        position: absolute;
+        top: 15%;
+        left: 30%;
+        transform: (-50%, -50%);
+        z-index: 999;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .gmovieInfo h2 {
+        font-size: 35px;
+        font-weight: bold;
+      }
+
+      .gmovieInfo p {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .section {
+        width: 1200px;
+        height: 50px;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+      }
+
+      .tab_list li {
+        display: inline-block;
+        margin: 10px 30px 10px 0;
+      }
+
+      .tab_list li a {
+        font-weight: bold;
+        font-size: large;
+      }
+      .company_wrap {
+        width: 1200px;
+        margin: auto;
+        padding: 50px 0 50px 0;
+      }
+      .company_wrap h2 {
+        font-weight: bold;
+      }
+      .company_wrap h3 {
+        color: #503396;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .company_wrap p {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      .valuable {
+        width: 1200px;
+        margin: auto;
+        margin-bottom: 100px;
+      }
+      .valuable img {
+        display: block;
+        margin: auto;
+      }
+      .value-tit {
+        font-weight: bold;
+        text-align: center;
+        font-size: 30px;
+      }
+      .bg_box {
+        width: 1200px;
+        margin: auto;
+        margin-top: 200px;
+      }
+      .bg_box h2 {
+        font-weight: bold;
+      }
+      .bg_box h3 {
+        font-weight: bold;
+        color: #503396;
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+      .point_box {
+        width: 310px;
+        height: 270px;
+        display: inline-block;
+        position: relative;
+        margin-right: 80px;
+      }
+      .point_box::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -60px;
+        background-image: url(./imgs/ico-plus.png);
+        width: 35px;
+        height: 35px;
+        margin-top: -20px; 
+      }
+      .point_box:last-child::after {
+        content: none;
+      }
+           
+      .tit_box {
+        color: #ffffff;
+        background-color: #444444;
+        width: 155px;
+        height: 135px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .tit_box p {
+        text-align: center;
+        padding-top: 25px;
+        font-weight: bold;
+        font-size: large;
+      }
+      .slogan {
+        width: 1200px;
+        margin: auto;
+        margin-top: 80px;
+      }
+      .slogan h2 {
+        font-weight: bold;
+      }
+      .slogan_box {
+        border: 3px solid #ebebeb;
+        width: 1100px;
+        height: 160px;
+        text-align: center;
+        position: relative;
+        margin: 25px 0 50px 0;
+      }
+      .slogan_box img {
+        display: inline-block;
+        position: absolute;
+        top: 30%;
+        left: 10%;
+      }
+      .slogan_box .sg_tit1 {
+        display: inline-block;
+        position: absolute;
+        top: 27%;
+        right: 35%;
+        color: #037B94;
+        font-weight: bold;
+      }
+      .slogan_box .sg_tit2 {
+        display: inline-block;
+        position: absolute;
+        top: 40%;
+        right: 10.5%;
+        font-weight: bold;
+      }
+      .identity {
+        width: 1200px;
+        margin: auto;
+      }
+      .identity h2 {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .identity p {
+        font-weight: bold;
+        margin-bottom: 100px;
+      }
+    </style>
+</head>
+<body>
+    <%@ include file="../include/header.jsp" %>
+        <section>
+            <div class="gmovieInfo">
+                <h2>GMOVIE 소개</h2>
+                <br>
+                <p>새로운 이야기를 만나고, 함께 어울려 놀고,즐거운 경험을 공유하는 공간</p>    
+            </div>           
+        </section> 
+        <div class="section">
+            <ul class="tab_list">
+                <li><a href="#">회사개요</a></li>
+                <li><a href="#">오시는길</a></li>
+            </ul>
+        </div>
+        <div class="company_wrap">
+            <h2>미션(Mission)</h3>
+            <h3>사람들과 공유할 수 있는, 공간경험을 만듭니다.</h3>
+            <p>
+                우리는 사람들에게 '즐겁고 행복한 일상'을 전달하기 위해 존재합니다. <br>
+                가치있는 콘텐트 제공으로 일상에 열감을 주는 '인생극장'을 넘어 공간 사업의 다양화를 중심으로 ‘즐거운 인생경험’을 제공하는 공간을 만듭니다.
+                <br><br>
+                GMOVIE를 경험한 오늘을 행복한 마음으로 공유할 수 있도록
+                MEET PLAY SHARE, GMOVIE
+            </p>
+        </div>
+        <div class="valuable">
+            <div class="value-tit">
+                <p>VALUABLE INFLUENCE<br>가치있는 영향력</p>
+            </div>
+            <img src="${path1 }/resources/imgs/img-valuable2.png" alt="valuable">
+        </div>
+        <div class="bg_box">
+            <h2>핵심가치 (Core Value)</h2>
+            <h3>GMOVIE가 추구하는 핵심가치는 '공감 + 창조 + 재미' 입니다.</h3>
+            <div class="point_box" style="background-image: url(${path1 }/resources/imgs/bg-point01_2.png);">
+                <div class="tit_box">
+                    <p>공감<br>사람에 대한<br>이해와 배려</p>
+                </div>
+            </div>
+            <div class="point_box" style="background-image: url(${path1 }/resources/imgs/bg-point02_2.png);">
+                <div class="tit_box">
+                    <p>창조<br>일상을 새롭게 하는<br>도전과 열정</p>
+                </div>
+            </div>
+            <div class="point_box" style="background-image: url(${path1 }/resources/imgs/bg-point03_2.png);">
+                <div class="tit_box">
+                    <p>재미<br>스스로<br>즐거워하기</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slogan">
+            <h2>브랜드 슬로건 (Brand Slogan)</h2>
+            <div class="slogan_box">
+                <img src="${path1 }/resources/imgs/img-lifetheater-tm2.png" alt="슬로건">
+                <p class="sg_tit1">MEET PLAY SHARE, GMOVIE</p><p class="sg_tit2">새로운 이야기를 만나고,함께 어울려 놀고, 즐거운 경험을 공유하는 공간</p>
+            </div>
+        </div>
+
+        <div class="identity">
+            <h2>BI (Brand identity)</h2>
+            <p>
+                2017년 새롭게 선보인 지무비의 브랜드아이덴티티는 6개의 황금비율의 박스와 영문 지무비라이프체로 조합되어 기존 지무비의 아이덴티티의 핵심 정신을 계
+                <br>승함과 동시에 사용상의 효율성과 확장성을 확보했습니다. <br>
+                시각적 안정감을 주는 5:8 황금비율의 박스들은 지무비의 공간을 상징하며, 보라 계열의 인디고 컬러는 창의적 콘텐트로 공간을 채워가겠다는 의미입니다.<br>
+                나아가 극장업의 본질에 충실하되 공간을 중심으로 다양한 고객 경험을 위해 창의적 시도를 멈추지 않겠다는 철학을 담았습니다.    
+            </p>
+        </div>
+       <%@ include file="../include/footer.jsp" %>      
+        
+    <footer id="footer"></footer>
+    
+        <script type="text/javascript">
+            $(window).scroll(function() {
+                var scroll_position = $(window).scrollTop()/2;
+                $('section').css({
+                    'background-position-x' : - scroll_position + 'px',
+                })
+            })
+        </script>
+</body>
+</html>

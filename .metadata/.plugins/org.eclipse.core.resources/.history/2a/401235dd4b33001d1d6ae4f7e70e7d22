@@ -1,0 +1,143 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path1" value="${pageContext.request.contextPath }" />
+<header id="header">
+    <div class="header_wrap">
+        <div class="header_top">
+            <a href="#">
+                <img src="${path1 }/resources/imgs/top_banner.jpg" alt="top_banner">
+                <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+            </a>
+        </div> 
+        <div class="header_container">
+            <a href="${path1 }/">
+                <div class="textbox_wrap">
+                    <div class="textbox">G</div>
+                    <div class="textbox">M</div>
+                    <div class="textbox">O</div>
+                    <div class="textbox">V</div>
+                    <div class="textbox">I</div>
+                    <div class="textbox">E</div>
+                    <div class="textbox2">절찬상영중</div>                 
+                </div> 
+            </a>          
+            <div  class="left_link">
+                <a href="#"><i class="xi-facebook-official xi-x"></i>페이스북</a>
+                <a href="#"><i class="xi-youtube-play xi-x"></i>유튜브</a>
+                <a href="#"><i class="xi-instagram xi-x"></i>인스타그램</a>
+            </div>
+            <div class="right_link">
+            <!-- 로그인 전 -->
+            <c:if test="${empty sid }">
+                <a href="${path1 }/member/loginForm.do">
+                    <img src="${path1 }/resources/imgs/loginPassword.png" alt="">
+                    		로그인
+                </a>
+                <a href="${path1 }/member/agreement.do">
+                    <img src="${path1 }/resources/imgs/loginJoin.png" alt="">
+                   		 	회원가입
+                </a>
+                <a href="#">
+                    <img src="${path1 }/resources/imgs/loginCustomer.png" alt="">
+                   			 고객센터
+                </a>
+            </c:if>
+            <!-- 로그인 후 --> 
+            <c:if test="${!empty sid }">
+				<span style="font-weight: bold; font-size: 1.3em">${sid }님</span>
+            	<a href="${path1 }/member/read.do">마이페이지</a>
+            	<a href="${path1 }/member/logout.do">로그아웃</a>
+            </c:if>
+            <!-- 관리자 로그인 일 때 -->
+            <c:if test="${sid == 'admin' }">       
+                <button type="button" class="menuBtn">
+                    <i class="xi-bars xi-x"></i>
+                    <nav id="navigation-list" class="navList">
+                        <ul>
+                            <li><a href="${path1 }/member/list.do">회원 목록</a></li>
+                            <li><a href="${path1 }/board/list.do">게시판 목록</a></li>
+                            <li><a href="${path1 }/board/boardWirteForm.do">게시판 등록</a></li>
+                        </ul>
+                    </nav>
+                </button>
+             </c:if>
+            </div>           
+        </div>
+    </div>
+    <div class="topMenu">
+        <ul class="menu01">
+            <li><span>예매</span>
+                <ul class="dept01">
+                    <li id="nop"><a href="#">예매하기</a></li>
+                    <li id="nop"><a href="#">상영시간표</a></li>
+                    <li id="nop"><a href="#">할인안내</a></li>
+                    
+                </ul>
+            </li>
+        </ul>
+        <ul class="menu01">
+            <li><span>영화</span>
+                <ul class="dept01">
+                    <li id="nop"><a href="#">홈</a></li>
+                    <li id="nop"><a href="#">현재상영작</a></li>
+                    <li id="nop"><a href="#">상영예정작</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="menu01">
+            <li><span>영화관</span>
+                <ul class="dept01">
+                    <li id="nop"><a href="#">스페셜관</a></li>
+                    <li id="nop"><a href="#">서울</a></li>
+                    <li id="nop"><a href="#">경기/인천</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="menu01">
+            <li><span>이벤트</span>
+                <ul class="dept01">
+                    <li id="nop"><a href="#">홈</a></li>
+                    <li id="nop"><a href="#">시사회/무대인사</a></li>
+                    <li id="nop"><a href="#">제휴할인</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="menu01">
+            <li><span>스토어</span>
+                <ul class="dept01">
+                    <li id="nop"><a href="#">베스트</a></li>
+                    <li id="nop"><a href="#">관람권</a></li>
+                    <li id="nop"><a href="#">스낵음료</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="none">
+    </div>
+    </header>
+    <script>
+        jQuery(document).ready(function($) {
+            $("#navigation-list").hide();
+            $(".menuBtn").click(function() {
+                $("#navigation-list").slideToggle(300);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('mouseover', '.topMenu span', function() {
+        $('.dept01').slideDown(500);
+        });
+        $(document).on('mouseover', 'div', function () {
+        if (!$(this).hasClass('topMenu')) {
+            $('.dept01').slideUp(500);
+        }
+        });
+    </script>
+
+    
+    
+
+   
